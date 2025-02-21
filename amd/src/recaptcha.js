@@ -14,7 +14,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * AMD module for reCAPTCHA integration
+ * AMD module for hCaptcha integration
  *
  * @module     auth_bf/recaptcha
  * @copyright  2025 Your Name <your@email.com>
@@ -23,8 +23,12 @@
 define(['jquery'], function($) {
     return {
         init: function(siteKey) {
-            // Load the reCAPTCHA script
-            $.getScript('https://www.google.com/recaptcha/api.js');
+            // Load the hCaptcha script
+            var script = document.createElement('script');
+            script.src = 'https://js.hcaptcha.com/1/api.js';
+            script.async = true;
+            script.defer = true;
+            document.head.appendChild(script);
         }
     };
 });

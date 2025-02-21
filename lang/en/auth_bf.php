@@ -14,17 +14,17 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-$string['pluginname'] = 'BF Authentication';
+$string['pluginname'] = 'Anti-Brute Force Authentication';
 $string['auth_bfdescription'] = 'This authentication method uses BF to verify user credentials against Moodle\'s database with added protection against brute force attacks.';
-$string['auth_bftitle'] = 'BF Authentication';
+$string['auth_bftitle'] = 'Anti-Brute Force Authentication';
 
-// reCAPTCHA settings
-$string['recaptchasettings'] = 'reCAPTCHA Settings';
-$string['recaptchasettingsinfo'] = 'Configure Google reCAPTCHA v2 settings. You can obtain these from https://www.google.com/recaptcha/admin';
-$string['recaptcha_site_key'] = 'Site Key';
-$string['recaptcha_site_key_desc'] = 'The reCAPTCHA Site Key provided by Google';
-$string['recaptcha_secret_key'] = 'Secret Key';
-$string['recaptcha_secret_key_desc'] = 'The reCAPTCHA Secret Key provided by Google';
+// hCaptcha settings
+$string['recaptchasettings'] = 'hCaptcha Settings';
+$string['recaptchasettingsinfo'] = 'Configure hCaptcha settings for brute force protection.';
+$string['recaptcha_site_key'] = 'hCaptcha Site Key';
+$string['recaptcha_site_key_desc'] = 'The site key from your hCaptcha dashboard.';
+$string['recaptcha_secret_key'] = 'hCaptcha Secret Key';
+$string['recaptcha_secret_key_desc'] = 'The secret key from your hCaptcha dashboard.';
 
 // Brute force protection settings
 $string['bfsettings'] = 'Brute Force Protection Settings';
@@ -35,5 +35,5 @@ $string['lockout_duration'] = 'Lockout Duration';
 $string['lockout_duration_desc'] = 'Duration of the lockout in seconds';
 
 // Error messages
-$string['error_recaptcha'] = 'The reCAPTCHA verification failed. Please try again.';
+$string['error_recaptcha'] = 'The hCaptcha verification failed. Please try again.';
 $string['error_too_many_attempts'] = 'Too many failed login attempts. Your account has been temporarily locked for {$a} seconds.';

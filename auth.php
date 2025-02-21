@@ -20,7 +20,7 @@ require_once($CFG->libdir.'/authlib.php');
 require_once($CFG->libdir.'/filelib.php');
 
 /**
- * Authentication Plugin for BF authentication with reCAPTCHA and brute force protection.
+ * Authentication Plugin for BF authentication with hCaptcha and brute force protection.
  */
 class auth_plugin_bf extends auth_plugin_base {
     /**
@@ -32,9 +32,9 @@ class auth_plugin_bf extends auth_plugin_base {
     }
 
     /**
-     * Verify reCAPTCHA response.
+     * Verify hCaptcha response.
      *
-     * @param string $response The reCAPTCHA response from the form
+     * @param string $response The hCaptcha response from the form
      * @return bool True if verification successful, false otherwise
      */
     private function verify_recaptcha($response) {
@@ -42,11 +42,10 @@ class auth_plugin_bf extends auth_plugin_base {
             return true; // Skip verification if not configured
         }
 
-        $url = 'https://www.google.com/recaptcha/api/siteverify';
+        $url = 'https://hcaptcha.com/siteverify';
         $data = [
             'secret' => $this->config->recaptcha_secret_key,
-            'response' => $response,
-            'remoteip' => getremoteaddr()
+            'response' => $response
         ];
 
         $curl = new curl();
@@ -131,10 +130,10 @@ class auth_plugin_bf extends auth_plugin_base {
             throw new moodle_exception('error_too_many_attempts', 'auth_bf', '', $lockout);
         }
 
-        // Verify reCAPTCHA if configured
+        // Verify hCaptcha if configured
         if (!empty($this->config->recaptcha_secret_key)) {
-            $recaptcha_response = optional_param('g-recaptcha-response', '', PARAM_TEXT);
-            if (!$this->verify_recaptcha($recaptcha_response)) {
+            $hcaptcha_response = optional_param('h-captcha-response', '', PARAM_TEXT);
+            if (!$this->verify_recaptcha($hcaptcha_response)) {
                 throw new moodle_exception('error_recaptcha', 'auth_bf');
             }
         }
@@ -183,20 +182,40 @@ class auth_plugin_bf extends auth_plugin_base {
     }
 
     /**
-     * Hook for overriding the login form.
+     * Modify the login form.
      *
      * @param object $form mform object
      */
     public function loginform_hook($form) {
-        global $PAGE;
-
         if (!empty($this->config->recaptcha_site_key)) {
-            // Add reCAPTCHA script
+            // Add hCaptcha script
+            global $PAGE;
             $PAGE->requires->js_call_amd('auth_bf/recaptcha', 'init', array($this->config->recaptcha_site_key));
             
-            // Add reCAPTCHA element
-            $form->addElement('html', '<div class="g-recaptcha" data-sitekey="' . 
+            // Add hCaptcha element
+            $form->addElement('html', '<div class="h-captcha mb-3" data-sitekey="' . 
                 $this->config->recaptcha_site_key . '"></div>');
         }
+    }
+
+    /**
+     * Hook for login page
+     *
+     * This method is called from the login page to add additional elements to the login form
+     */
+    public function loginpage_hook() {
+        global $PAGE;
+
+        if (empty($this->config->recaptcha_site_key)) {
+            return;
+        }
+
+        // Add hCaptcha JS
+        $PAGE->requires->js_call_amd('auth_bf/recaptcha', 'init', array($this->config->recaptcha_site_key));
+
+        // Return the hCaptcha div
+        return html_writer::div('', 'h-captcha', array(
+            'data-sitekey' => $this->config->recaptcha_site_key
+        ));
     }
 }

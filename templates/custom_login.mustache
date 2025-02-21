@@ -1,0 +1,18 @@
+<form id="login_form" action="{{loginurl}}" method="post">
+    <div class="form-group">
+        <label for="username">{{#str}}username, auth_bf{{/str}}</label>
+        <input type="text" id="username" name="username" class="form-control" value="{{username}}" />
+    </div>
+    <div class="form-group">
+        <label for="password">{{#str}}password, auth_bf{{/str}}</label>
+        <input type="password" id="password" name="password" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>{{#str}}entercaptcha, auth_bf{{/str}}</label>
+        <div class="h-captcha" data-sitekey="{{captcha_site_key}}"></div>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">{{#str}}login, auth_bf{{/str}}</button>
+    </div>
+    <input type="hidden" name="sesskey" value="{{sesskey}}" />
+</form>
