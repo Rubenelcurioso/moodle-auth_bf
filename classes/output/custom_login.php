@@ -1,34 +1,50 @@
 <?php
-// This file is part of Moodle auth_bf plugin.
+// This file is part of Moodle - http://moodle.org/
+//
+// Moodle is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Moodle is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 namespace auth_bf\output;
 
 defined('MOODLE_INTERNAL') || die();
 
+use renderable;
+use templatable;
+use renderer_base;
+
 /**
- * Renderable custom login form
+ * Custom login page renderable.
  */
-class custom_login implements \renderable, \templatable {
-    /**
-     * Data required by the template
-     * @var array
-     */
+class custom_login implements renderable, templatable {
+    /** @var array The data for the template */
     protected $data;
 
     /**
-     * Constructor
-     * @param array $data Data for the template, e.g. loginurl, username, captcha_site_key, sesskey
+     * Constructor.
+     *
+     * @param array $data The data for the template
      */
-    public function __construct(array $data) {
+    public function __construct($data) {
         $this->data = $data;
     }
 
     /**
-     * Exports the data for rendering via mustache
-     * @param \renderer_base $output
-     * @return array
+     * Export the data for the mustache template.
+     *
+     * @param renderer_base $output The renderer
+     * @return array The data for the template
      */
-    public function export_for_template(\renderer_base $output) {
+    public function export_for_template(renderer_base $output) {
         return $this->data;
     }
 }

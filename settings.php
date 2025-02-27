@@ -17,19 +17,19 @@
 defined('MOODLE_INTERNAL') || die;
 
 if ($ADMIN->fulltree) {
-    // reCAPTCHA settings.
-    $settings->add(new admin_setting_heading('auth_bf/recaptchasettings',
-        get_string('recaptchasettings', 'auth_bf'),
-        get_string('recaptchasettingsinfo', 'auth_bf')));
+    // hCaptcha settings.
+    $settings->add(new admin_setting_heading('auth_bf/hcaptchasettings',
+        get_string('hcaptchasettings', 'auth_bf'),
+        get_string('hcaptchasettingsinfo', 'auth_bf')));
 
-    $settings->add(new admin_setting_configtext('auth_bf/recaptcha_site_key',
-        get_string('recaptcha_site_key', 'auth_bf'),
-        get_string('recaptcha_site_key_desc', 'auth_bf'),
+    $settings->add(new admin_setting_configtext('auth_bf/hcaptcha_site_key',
+        get_string('hcaptcha_site_key', 'auth_bf'),
+        get_string('hcaptcha_site_key_desc', 'auth_bf'),
         '', PARAM_TEXT));
 
-    $settings->add(new admin_setting_configtext('auth_bf/recaptcha_secret_key',
-        get_string('recaptcha_secret_key', 'auth_bf'),
-        get_string('recaptcha_secret_key_desc', 'auth_bf'),
+    $settings->add(new admin_setting_configtext('auth_bf/hcaptcha_secret_key',
+        get_string('hcaptcha_secret_key', 'auth_bf'),
+        get_string('hcaptcha_secret_key_desc', 'auth_bf'),
         '', PARAM_TEXT));
 
     // Anti-brute force settings.

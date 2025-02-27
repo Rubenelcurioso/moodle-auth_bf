@@ -19,12 +19,12 @@ $string['auth_bfdescription'] = 'This authentication method uses BF to verify us
 $string['auth_bftitle'] = 'Anti-Brute Force Authentication';
 
 // hCaptcha settings
-$string['recaptchasettings'] = 'hCaptcha Settings';
-$string['recaptchasettingsinfo'] = 'Configure hCaptcha settings for brute force protection.';
-$string['recaptcha_site_key'] = 'hCaptcha Site Key';
-$string['recaptcha_site_key_desc'] = 'The site key from your hCaptcha dashboard.';
-$string['recaptcha_secret_key'] = 'hCaptcha Secret Key';
-$string['recaptcha_secret_key_desc'] = 'The secret key from your hCaptcha dashboard.';
+$string['hcaptchasettings'] = 'hCaptcha Settings';
+$string['hcaptchasettingsinfo'] = 'Configure hCaptcha settings for brute force protection.';
+$string['hcaptcha_site_key'] = 'hCaptcha Site Key';
+$string['hcaptcha_site_key_desc'] = 'The site key from your hCaptcha dashboard.';
+$string['hcaptcha_secret_key'] = 'hCaptcha Secret Key';
+$string['hcaptcha_secret_key_desc'] = 'The secret key from your hCaptcha dashboard.';
 
 // Brute force protection settings
 $string['bfsettings'] = 'Brute Force Protection Settings';
@@ -35,5 +35,13 @@ $string['lockout_duration'] = 'Lockout Duration';
 $string['lockout_duration_desc'] = 'Duration of the lockout in seconds';
 
 // Error messages
-$string['error_recaptcha'] = 'The hCaptcha verification failed. Please try again.';
+$string['error_hcaptcha'] = 'The hCaptcha verification failed. Please try again.';
 $string['error_too_many_attempts'] = 'Too many failed login attempts. Your account has been temporarily locked for {$a} seconds.';
+$string['error_login'] = 'The username or password is incorrect.';
+
+// Custom login form
+$string['entercaptcha'] = 'Please complete the hCaptcha verification';
+$string['pleaseverifycaptcha'] = 'Please complete the hCaptcha verification before logging in';
+$string['username'] = 'Username';
+$string['password'] = 'Password';
+$string['login'] = 'Log in';
