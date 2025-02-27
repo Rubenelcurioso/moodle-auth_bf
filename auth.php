@@ -1,5 +1,9 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
+// This file is part of an external plugin for Moodle - http://moodle.org/
+// This plugin is licensed under GNU Public License v3.
+//
+// This plugin is NOT part of the Moodle core and is provided as is. It is developed independently
+// and must comply with the GNU Public License v3 requirements.
 //
 // Moodle is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by

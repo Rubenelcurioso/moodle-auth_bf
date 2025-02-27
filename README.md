@@ -1,4 +1,4 @@
-# Moodle BF Authentication Plugin
+# Moodle Anti-Brute Force Authentication Plugin
 
 A Moodle authentication plugin that extends the standard authentication with anti-brute force measures.
 
@@ -7,7 +7,7 @@ A Moodle authentication plugin that extends the standard authentication with ant
 - Standard Moodle authentication integration
 - Anti-brute force protection
 - Easy to configure and maintain
-- Compatible with Moodle 4.1 and above
+- Compatible with Moodle 4.3 and above
 
 ## Installation
 
@@ -20,13 +20,13 @@ A Moodle authentication plugin that extends the standard authentication with ant
 
 The plugin can be configured through the Moodle administration interface:
 
-1. Navigate to Site Administration > Plugins > Authentication > BF Authentication
+1. Navigate to Site Administration > Plugins > Authentication > Anti-Brute Force Authentication
 2. Configure the desired settings
 3. Save your changes
 
 ## Requirements
 
-- Moodle 4.1 or higher
+- Moodle 4.3 or higher
 - PHP 8.3 or higher
 
 ## License
